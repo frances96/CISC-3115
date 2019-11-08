@@ -2,7 +2,7 @@
 // November 5, 2019
 import java.util.*;
 
-public class Main
+public class GenericStackApp
 {
 
     public static void main(String args[])
