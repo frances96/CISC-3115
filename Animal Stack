@@ -1,18 +1,25 @@
 //Frances Che 
 // November 5, 2019
+
 import java.util.*;
 
-public class GenericStackApp{
+public class Main{
 
     public static void main(String args[]){
-    
       Stack<String> stack = new Stack<String>();
 
       stack.push("Tiger");
       stack.push("Monkey");
       stack.push("Bear");
-    
-      System.out.println("Push: " + stack);
+
+      int i = 0; 
+      for (String Element : stack){
+        if (i < stack.size()){
+          System.out.println(Element);
+        i++;
+        }
+      }
+      
       System.out.println("The stack contains: " + stack.size() + "items");
 
       System.out.println("Peek: " + stack.peek());
@@ -22,7 +29,6 @@ public class GenericStackApp{
       System.out.println("Pop:" + stack.pop());
       System.out.println("Pop:" + stack.pop());
       System.out.println("The stack contains: " + stack.size() + "item");
-      
-    }
 
+    }
 }
