@@ -2,11 +2,10 @@
 // November 5, 2019
 import java.util.*;
 
-public class GenericStackApp
-{
+public class GenericStackApp{
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]){
+    
       Stack<String> stack = new Stack<String>();
 
       stack.push("Tiger");
@@ -24,7 +23,6 @@ public class GenericStackApp
       System.out.println("Pop:" + stack.pop());
       System.out.println("The stack contains: " + stack.size() + "item");
       
- 
     }
 
 }
