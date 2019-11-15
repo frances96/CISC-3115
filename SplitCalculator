@@ -75,7 +75,7 @@ public class SplitCalculator extends Application {
         Total = bill + (tax);
         double splitTotal;
         splitTotal = Total / split;
-        msg1.setText("Your final amount " + currency.format(Total)+ " " + "and split " + split + " " + "ways is: " + currency.format(splitTotal));
+        msg1.setText("Your final amount is " + currency.format(Total)+ " " + "and split " + split + " " + "ways is: " + currency.format(splitTotal));
      
 //            try {
 //                split = 0;
