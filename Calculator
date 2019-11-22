@@ -19,7 +19,7 @@ public class SplitCalculator extends Application{
     private ComboBox cbTips;
     private ObservableList<String> tip_rates = FXCollections.observableArrayList("10%","15%","20%","25%","30%");
     private Spinner split1;
-    Label msg1;
+   
     
     NumberFormat currency = NumberFormat.getCurrencyInstance();
     
@@ -84,14 +84,6 @@ public class SplitCalculator extends Application{
         pane.add(btExit, 2,5);
         GridPane.setHalignment(btExit, HPos.RIGHT);
         btExit.setOnAction(event -> exitButtonClicked());
-
-        
-        //Message to user 
-        msg1 = new Label(); 
-        msg1.setWrapText(true);
-        msg1.setPrefWidth(300);
-        msg1.setWrapText(true);
-        pane.add(msg1, 0, 10, 4, 6);
                     
         // Create a scene and place it in the stage
         Scene scene = new Scene(pane, 500, 550);
@@ -111,7 +103,6 @@ public class SplitCalculator extends Application{
 //            double SplitTotal = total/split;
 //            totalTF.setText(Double.toString(total));
 //            personTF.setText(Double.toString(SplitTotal));
-//            //msg1.setText("Your final amount is " + currency.format(total)+ " " + "and split " + split + " " + "ways is: " + currency.format(SplitTotal));
 //        }
     
     private void clearButtonClicked() {
