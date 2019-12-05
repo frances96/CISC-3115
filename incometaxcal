@@ -1,0 +1,218 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
+import javafx.scene.control.*;
+import javafx.geometry.*;
+import java.text.NumberFormat;
+import javafx.event.ActionEvent;
+
+
+public class IncomeTaxCal extends Application{
+    private TextField incomeTF;
+    private TextField federaltaxrateTF;
+    private TextField federaltaxTF;
+    private TextField statetaxrateTF;
+    private TextField statetaxTF;
+    private TextField totalincometaxTF;
+    
+    
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
+    
+        @Override 
+        public void start(Stage primaryStage){
+            GridPane pane = new GridPane();
+            pane.setAlignment(Pos.CENTER);
+            pane.setPadding(new Insets(25, 25, 23, 24));
+            pane.setHgap(10);
+            pane.setVgap(10);
+            
+            pane.add(new Label("Income: "), 0,1);
+            incomeTF = new TextField();
+            pane.add(incomeTF, 1,1);
+            pane.add(new Label("Filing as: Single"), 0, 2);
+            pane.add(new Label("Federal Tax Rate: "), 0, 4);
+            federaltaxrateTF = new TextField();
+            pane.add(federaltaxrateTF, 1,4);
+            pane.add(new Label("Federal Tax Amount: "), 0, 5);
+            federaltaxTF = new TextField();
+            pane.add(federaltaxTF, 1,5);
+            pane.add(new Label("NYS Tax Rate: "), 0, 7);
+            statetaxrateTF = new TextField();
+            pane.add(statetaxrateTF, 1,7);
+            pane.add(new Label("NYS Tax Amount: "), 0,8);
+            statetaxTF = new TextField();
+            pane.add(statetaxTF, 1,8);
+            pane.add(new Label("Total Income Tax: "), 0,10);
+            totalincometaxTF = new TextField();
+            pane.add(totalincometaxTF, 1,10);
+            
+            //Button
+            Button btCalculate = new Button("Calculate");
+            pane.add(btCalculate, 0, 11);
+            GridPane.setHalignment(btCalculate, HPos.CENTER);
+            btCalculate.setOnAction((ActionEvent e) -> {
+               
+                double income = Double.parseDouble(incomeTF.getText());
+                double federaltaxrate;
+                double federaltax;
+                double statetaxrate;
+                double statetax;
+                double totalincometax;
+                
+                if (income <= 8500){
+                    federaltaxrate = 10.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 4.0/100;
+                    statetax = income * statetaxrate;
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));          
+                }
+                else if(income > 85001 && income<= 11700){
+                    federaltaxrate = 12.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 4.5/100;
+                    statetax = 340.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 117001 && income <= 13900){
+                    federaltaxrate = 12.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 5.25/100;
+                    statetax = 484.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 13901 && income <= 21400){
+                    federaltaxrate = 12.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 5.9/100;
+                    statetax = 600.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 21401 && income <= 80650){
+                    federaltaxrate = 12.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 6.33/100;
+                    statetax = 1042.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 80651 && income <= 215400){
+                    federaltaxrate = 24.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 6.57/100;
+                    statetax = 4793.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 215401 && income <= 1077550){
+                    federaltaxrate = 32.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 6.85/100;
+                    statetax = 13646.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }
+                else if (income > 1077551){
+                    federaltaxrate = 37.0/100;
+                    federaltax = income * federaltaxrate;
+                    statetaxrate = 8.82/100;
+                    statetax = 72703.00 + (income * statetaxrate);
+                    totalincometax = federaltax + statetax;
+                    System.out.println("Federal Tax Rate: " + federaltaxrate);
+                    federaltaxrateTF.setText(String.format ("%.2f", federaltaxrate));
+                    System.out.println("Federal Tax Amount: " + federaltax);
+                    federaltaxTF.setText(String.format ("$%.2f", federaltax));
+                    System.out.println("NYS Tax Rate: " + statetaxrate);
+                    statetaxrateTF.setText(String.format ("%.2f", statetaxrate));
+                    System.out.println("NYS Tax Amount: " + statetax);
+                    statetaxTF.setText(String.format ("$%.2f", statetax));
+                    System.out.println("Total Income Tax: " + totalincometax);
+                    totalincometaxTF.setText(String.format ("$%.2f", totalincometax));
+                }                   
+            });
+                    
+            //Scene 
+            Scene scene = new Scene (pane, 400, 350);
+            primaryStage.setTitle("Income Tax Calculator");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        
+    public static void main(String[] args) {
+        launch(args);
+    }    
+}
