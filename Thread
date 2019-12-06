@@ -1,0 +1,33 @@
+class Main {
+  public static void main(String[] args) {
+    
+    PrintThread thread1 = new PrintThread("Fa");
+    PrintThread thread2 = new PrintThread("La");
+
+    thread1.start();
+    thread2.start();
+  }
+}
+
+class PrintThread extends Thread{
+  String[] fa = {"Fa"};
+  String[] la = {"La"};
+
+  PrintThread(String name){
+    super(name);
+  }
+
+  @Override
+  public void run(){
+    for (int i = 0; i < 10; i++) {
+      System.out.print(getName() + "-");
+      Thread.yield();
+
+      try {
+  	    if (i >= 9) Thread.sleep(1);
+	    }
+	    catch (InterruptedException ex) {
+	    }
+    }
+  }
+}
